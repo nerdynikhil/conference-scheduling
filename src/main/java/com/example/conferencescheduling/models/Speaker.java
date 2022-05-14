@@ -1,10 +1,8 @@
 package com.example.conferencescheduling.models;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
 @Entity(name = "speakers")
 public class Speaker {
@@ -18,6 +16,7 @@ public class Speaker {
     private String company;
     private String speaker_bio;
 
+    @ManyToMany(mappedBy="speakers")
     private List<Session> sessions;
 
     public List<Session> getSessions() {

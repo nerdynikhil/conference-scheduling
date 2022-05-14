@@ -1,6 +1,7 @@
 package com.example.conferencescheduling.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity(name="sessions")
 public class Session {
@@ -16,7 +17,7 @@ public class Session {
     @ManyToMany
     @JoinTable(name="session_speakers",joinColumns = @JoinColumn(name = "session_id"), inverseJoinColumns = @JoinColumn(name = "speaker_id"))
 
-    private List <Speaker> speakers;
+    private List<Speaker> speakers;
 
     public Session(){
 
