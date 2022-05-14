@@ -37,7 +37,7 @@ public class SpeakersController {
 
     @RequestMapping(value = "{id}", method=RequestMethod.PUT)
     public Speaker update(@PathVariable Long id, @RequestBody Speaker speaker){
-        Speaker existing = speakerRepository.getOne(id);
+        Speaker existingSpeaker = speakerRepository.getOne(id);
         BeanUtils.copyProperties(speaker, existingSpeaker, "speaker_id");
         return speakerRepository.saveAndFlush(existingSpeaker);
     }
